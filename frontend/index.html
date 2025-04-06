@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Inventory Management System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Space Inventory Management System</h1>
+            <nav>
+                <ul>
+                    <li><a href="#" class="nav-link active" data-section="search">Search & Retrieval</a></li>
+                    <li><a href="#" class="nav-link" data-section="waste">Waste Management</a></li>
+                    <li><a href="#" class="nav-link" data-section="simulation">Time Simulation</a></li>
+                    <li><a href="#" class="nav-link" data-section="placement">Placement</a></li>
+                    <li><a href="#" class="nav-link" data-section="rearrange">Rearrangement</a></li>
+                    <li><a href="#" class="nav-link" data-section="import-export">Import/Export</a></li>
+                    <li><a href="#" class="nav-link" data-section="logs">Logs</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Search & Retrieval Section -->
+            <section id="search" class="section active">
+                <h2>Item Search & Retrieval</h2>
+                <div class="search-container">
+                    <div class="form-group">
+                        <label for="search-input">Search by Item ID or Name:</label>
+                        <input type="text" id="search-input" placeholder="Enter item ID or name">
+                    </div>
+                    <div class="form-group">
+                        <label for="user-id">User ID (optional):</label>
+                        <input type="text" id="user-id" placeholder="Enter your user ID">
+                    </div>
+                    <button id="search-button" class="primary-button">Search</button>
+                </div>
+
+                <div id="search-results" class="results-container hidden">
+                    <h3>Search Results</h3>
+                    <div class="item-details">
+                        <div class="item-info"></div>
+                        <div class="retrieval-steps"></div>
+                    </div>
+                    <div class="action-buttons">
+                        <button id="retrieve-button" class="primary-button">Retrieve Item</button>
+                        <button id="place-button" class="secondary-button">Place Item</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Waste Management Section -->
+            <section id="waste" class="section">
+                <h2>Waste Management & Return Planning</h2>
+                <div class="waste-container">
+                    <button id="identify-waste-button" class="primary-button">Identify Waste Items</button>
+                    
+                    <div id="waste-results" class="results-container hidden">
+                        <h3>Waste Items</h3>
+                        <div class="waste-items-list"></div>
+                    </div>
+
+                    <div class="return-plan-form">
+                        <h3>Generate Return Plan</h3>
+                        <div class="form-group">
+                            <label for="undocking-container">Undocking Container ID:</label>
+                            <input type="text" id="undocking-container" placeholder="Enter container ID">
+                        </div>
+                        <div class="form-group">
+                            <label for="undocking-date">Undocking Date:</label>
+                            <input type="date" id="undocking-date">
+                        </div>
+                        <div class="form-group">
+                            <label for="max-weight">Maximum Weight (kg):</label>
+                            <input type="number" id="max-weight" placeholder="Enter max weight">
+                        </div>
+                        <button id="generate-plan-button" class="primary-button">Generate Return Plan</button>
+                    </div>
+
+                    <div id="return-plan-results" class="results-container hidden">
+                        <h3>Return Plan</h3>
+                        <div class="return-plan-details"></div>
+                        <button id="complete-undocking-button" class="primary-button">Complete Undocking</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Time Simulation Section -->
+            <section id="simulation" class="section">
+                <h2>Time Simulation</h2>
+                <div class="simulation-container">
+                    <div class="simulation-controls">
+                        <button id="next-day-button" class="primary-button">Next Day</button>
+                        <div class="form-group">
+                            <label for="days-to-simulate">Days to Fast Forward:</label>
+                            <input type="number" id="days-to-simulate" min="1" value="1">
+                        </div>
+                        <button id="fast-forward-button" class="secondary-button">Fast Forward</button>
+                    </div>
+
+                    <div class="items-usage-form">
+                        <h3>Items to be Used</h3>
+                        <div id="items-to-use-list">
+                            <div class="item-to-use">
+                                <input type="text" class="item-id-input" placeholder="Item ID">
+                                <input type="text" class="item-name-input" placeholder="Item Name">
+                                <button class="remove-item-button">✕</button>
+                            </div>
+                        </div>
+                        <button id="add-item-to-use-button" class="small-button">+ Add Item</button>
+                    </div>
+
+                    <div id="simulation-results" class="results-container hidden">
+                        <h3>Simulation Results</h3>
+                        <div class="simulation-details"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Placement Section -->
+            <section id="placement" class="section">
+                <h2>Placement Recommendations</h2>
+                <div class="placement-container">
+                    <div class="form-group">
+                        <label for="item-id-placement">Item ID:</label>
+                        <input type="text" id="item-id-placement" placeholder="Enter item ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="container-id-placement">Container ID:</label>
+                        <input type="text" id="container-id-placement" placeholder="Enter container ID">
+                    </div>
+                    <button id="get-placement-button" class="primary-button">Get Placement Recommendation</button>
+
+                    <div id="placement-results" class="results-container hidden">
+                        <h3>Placement Recommendation</h3>
+                        <div class="placement-details"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Rearrangement Section -->
+            <section id="rearrange" class="section">
+                <h2>Rearrangement Recommendations</h2>
+                <div class="rearrange-container">
+                    <button id="check-space-button" class="primary-button">Check Space Efficiency</button>
+                    <div id="rearrange-results" class="results-container hidden">
+                        <h3>Rearrangement Recommendations</h3>
+                        <div class="rearrange-details"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Import/Export Section -->
+            <section id="import-export" class="section">
+                <h2>Import/Export Data</h2>
+                <div class="import-export-container">
+                    <div class="import-section">
+                        <h3>Import Data</h3>
+                        <div class="form-group">
+                            <label for="import-items-file">Import Items:</label>
+                            <input type="file" id="import-items-file" accept=".csv">
+                            <button id="import-items-button" class="primary-button">Import Items</button>
+                        </div>
+                        <div class="form-group">
+                            <label for="import-containers-file">Import Containers:</label>
+                            <input type="file" id="import-containers-file" accept=".csv">
+                            <button id="import-containers-button" class="primary-button">Import Containers</button>
+                        </div>
+                    </div>
+                    <div class="export-section">
+                        <h3>Export Data</h3>
+                        <button id="export-arrangement-button" class="primary-button">Export Current Arrangement</button>
+                    </div>
+                    <div id="import-export-results" class="results-container hidden">
+                        <h3>Import/Export Results</h3>
+                        <div class="import-export-details"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Logs Section -->
+            <section id="logs" class="section">
+                <h2>Activity Logs</h2>
+                <div class="logs-container">
+                    <div class="logs-filter">
+                        <div class="form-group">
+                            <label for="start-date">Start Date:</label>
+                            <input type="date" id="start-date">
+                        </div>
+                        <div class="form-group">
+                            <label for="end-date">End Date:</label>
+                            <input type="date" id="end-date">
+                        </div>
+                        <div class="form-group">
+                            <label for="item-id-logs">Item ID (optional):</label>
+                            <input type="text" id="item-id-logs" placeholder="Enter item ID">
+                        </div>
+                        <div class="form-group">
+                            <label for="user-id-logs">User ID (optional):</label>
+                            <input type="text" id="user-id-logs" placeholder="Enter user ID">
+                        </div>
+                        <div class="form-group">
+                            <label for="action-type">Action Type (optional):</label>
+                            <select id="action-type">
+                                <option value="">All Actions</option>
+                                <option value="placement">Placement</option>
+                                <option value="retrieval">Retrieval</option>
+                                <option value="rearrangement">Rearrangement</option>
+                                <option value="disposal">Disposal</option>
+                            </select>
+                        </div>
+                        <button id="get-logs-button" class="primary-button">Get Logs</button>
+                    </div>
+                    <div id="logs-results" class="results-container hidden">
+                        <h3>Activity Logs</h3>
+                        <div class="logs-list"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Space Inventory Management System &copy; 2025</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="src/api.js"></script>
+    <script src="src/search.js"></script>
+    <script src="src/waste.js"></script>
+    <script src="src/simulation.js"></script>
+    <script src="src/placement.js"></script>
+    <script src="src/rearrange.js"></script>
+    <script src="src/import-export.js"></script>
+    <script src="src/logs.js"></script>
+    <script src="src/app.js"></script>
+</body>
+</html>
+

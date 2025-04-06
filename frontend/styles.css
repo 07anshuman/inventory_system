@@ -1,0 +1,272 @@
+/* Base Styles */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --light-color: #ecf0f1;
+    --dark-color: #2c3e50;
+    --success-color: #2ecc71;
+    --warning-color: #f39c12;
+    --danger-color: #e74c3c;
+    --border-radius: 4px;
+    --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--dark-color);
+    background-color: #f5f7fa;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 20px 0;
+    margin-bottom: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+header h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+nav li {
+    margin: 0 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s;
+}
+
+nav a:hover, nav a.active {
+    background-color: var(--secondary-color);
+}
+
+/* Section Styles */
+.section {
+    display: none;
+    background-color: white;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 30px;
+}
+
+.section.active {
+    display: block;
+}
+
+.section h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--light-color);
+}
+
+.section h3 {
+    color: var(--secondary-color);
+    margin: 20px 0 10px;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+}
+
+input[type="file"] {
+    padding: 10px 0;
+}
+
+/* Button Styles */
+.primary-button,
+.secondary-button,
+.small-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.primary-button {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.secondary-button {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}
+
+.small-button {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.primary-button:hover {
+    background-color: #2980b9;
+}
+
+.secondary-button:hover {
+    background-color: #bdc3c7;
+}
+
+.small-button:hover {
+    background-color: #bdc3c7;
+}
+
+/* Results Container */
+.results-container {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    background-color: #f9f9f9;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Specific Section Styles */
+
+/* Search Section */
+.search-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.item-details {
+    margin-bottom: 20px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Waste Section */
+.waste-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.return-plan-form {
+    margin-top: 30px;
+}
+
+/* Simulation Section */
+.simulation-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.simulation-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.items-usage-form {
+    margin-top: 30px;
+}
+
+.item-to-use {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.item-id-input, .item-name-input {
+    flex: 1;
+}
+
+.remove-item-button {
+    background-color: var(--danger-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Import/Export Section */
+.import-export-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.import-section, .export-section {
+    margin-bottom: 30px;
+}
+
+/* Logs Section */
+.logs-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.logs-filter {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.logs-list {
+    max-height: 400px;
+    overflow
+
