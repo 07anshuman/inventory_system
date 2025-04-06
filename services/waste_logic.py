@@ -2,7 +2,7 @@ from datetime import datetime
 from sqlalchemy.orm import Session
 from typing import List, Dict, Any, Optional
 
-from ..models.waste_model import (
+from models.waste_model import (
     WasteIdentifyResponse, 
     WasteItem, 
     Position, 
@@ -16,7 +16,7 @@ from ..models.waste_model import (
     CompleteUndockingRequest, 
     CompleteUndockingResponse
 )
-from ..data.database import (
+from data.database import (
     get_all_items, 
     get_item_by_id, 
     get_container_by_id,

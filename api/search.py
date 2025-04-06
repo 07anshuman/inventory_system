@@ -2,19 +2,20 @@ from fastapi import APIRouter, Depends, Query
 from typing import Optional
 from sqlalchemy.orm import Session
 
-from ..models.search_model import (
+from models.search_model import (
     SearchResponse, 
     RetrieveRequest, 
     RetrieveResponse, 
     PlaceRequest, 
     PlaceResponse
 )
-from ..services.search_logic import (
+from services.search_logic import (
     search_item, 
     retrieve_item, 
     place_item
 )
-from ..data.database import get_db
+from data.database import get_db
+
 
 router = APIRouter()
 

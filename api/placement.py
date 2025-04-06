@@ -1,6 +1,9 @@
 from fastapi import FastAPI, HTTPException
+# For models in /home/anshuman-shukla/Documents/inventory_system/models
 from models import PlaceRequest, RetrieveRequest, Item
-from placement_logic import place_item, find_item, retrieve_item
+# For placement_logic in /home/anshuman-shukla/Documents/inventory_system/services
+from services.placement_logic import place_item, find_item, retrieve_item
+
 
 app = FastAPI()
 

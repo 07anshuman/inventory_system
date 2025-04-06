@@ -2,7 +2,7 @@ from datetime import datetime
 from sqlalchemy.orm import Session
 from typing import Optional, List, Dict, Any
 
-from ..models.search_model import (
+from models.search_model import (
     SearchResponse, 
     ItemDetail, 
     Position, 
@@ -13,7 +13,7 @@ from ..models.search_model import (
     PlaceRequest, 
     PlaceResponse
 )
-from ..data.database import get_item_by_id, get_items_by_name, log_action, update_item_position
+from data.database import get_item_by_id, get_items_by_name, log_action, update_item_position
 
 def search_item(
     db: Session, 

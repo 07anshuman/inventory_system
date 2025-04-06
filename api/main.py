@@ -1,14 +1,15 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-# Import routers from each API module
-from .search import router as search_router
-from .waste import router as waste_router
-from .simulation import router as simulation_router
-from .placement import router as placement_router
-from .rearrange import router as rearrange_router
-from .import_export import router as import_export_router
-from .logs import router as logs_router
+# Import routers from each API module using absolute imports
+from api.search import router as search_router
+from api.waste import router as waste_router
+from api.simulation import router as simulation_router
+from api.placement import router as placement_router
+from api.rearrange import router as rearrange_router
+from api.import_export import router as import_export_router
+from api.logs import router as logs_router
+
 
 # Create FastAPI app
 app = FastAPI(

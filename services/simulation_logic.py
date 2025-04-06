@@ -1,8 +1,8 @@
 from datetime import datetime, timedelta
 from sqlalchemy.orm import Session
 from typing import List, Dict, Any, Optional
-from ..models.simulation_model import SimulationRequest, SimulationResponse, SimulationChanges, ItemUsage
-from ..data.database import get_all_items, update_item_usage, log_action, get_item_by_id, get_item_by_name
+from models.simulation_model import SimulationRequest, SimulationResponse, SimulationChanges, ItemUsage
+from data.database import get_all_items, update_item_usage, log_action, get_item_by_id, get_item_by_name
 
 def simulate_day(db: Session, request: SimulationRequest) -> SimulationResponse:
     """

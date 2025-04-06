@@ -2,19 +2,20 @@ from fastapi import APIRouter, Depends, Query
 from typing import Optional
 from sqlalchemy.orm import Session
 
-from ..models.waste_model import (
+
+from models.waste_model import (
     WasteIdentifyResponse, 
     ReturnPlanRequest, 
     ReturnPlanResponse, 
     CompleteUndockingRequest, 
     CompleteUndockingResponse
 )
-from ..services.waste_logic import (
+from services.waste_logic import (
     identify_waste_items, 
     generate_return_plan, 
     complete_undocking
 )
-from ..data.database import get_db
+from data.database import get_db
 
 router = APIRouter()
 
